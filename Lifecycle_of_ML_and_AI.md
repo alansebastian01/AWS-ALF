@@ -1,5 +1,3 @@
-Absolutely — here’s a combined version formatted so you can paste it directly into a **GitHub README.md**.
-
 # Machine Learning & Generative AI Model Lifecycles
 
 This guide compares the **traditional Machine Learning (ML) lifecycle** with the **Generative AI (GenAI) model lifecycle**.
@@ -298,4 +296,3 @@ Remember these associations:
 * **Changes in relationships between inputs and target → Concept Drift**
 * **Large general-purpose GenAI model → Foundation Model**
 
-This should render nicely as a GitHub `README.md`, including the tables, diagrams, headings, and emojis.
