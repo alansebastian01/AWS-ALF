@@ -1,4 +1,5 @@
 
+
 ````markdown
 # Amazon SageMaker Features — Quick Reference
 
@@ -1116,3 +1117,4 @@ The most important exam distinction among the inference options is:
 > **Batch Transform = bulk offline jobs**
 > **Async = long-running individual requests**
 
+That one distinction alone shows up a lot in SageMaker questions.
