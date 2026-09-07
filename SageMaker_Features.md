@@ -1,13 +1,10 @@
-Yes. Here’s a **GitHub-ready Markdown reference** for the main **Amazon SageMaker features and what each one is used for**.
+# ☁️ Amazon SageMaker Features — Quick Reference
 
-````markdown
-# Amazon SageMaker Features — Quick Reference
-
-Amazon SageMaker is AWS’s managed machine learning platform for building, training, deploying, monitoring, and managing ML models.
+Amazon SageMaker is AWS's managed machine learning platform for **building, training, deploying, monitoring, and managing ML models**.
 
 ---
 
-# 🌳 SageMaker Big Picture
+## 🌳 SageMaker Big Picture
 
 ```text
 DATA
@@ -29,11 +26,37 @@ Deploy Model
 Monitor Model
 ```
 
-SageMaker has features for almost every stage of this lifecycle.
+SageMaker provides features for almost every stage of the machine learning lifecycle.
 
 ---
 
-# 📌 Quick Reference Table
+## 🎯 Exam Trigger Words
+
+| If the question mentions... | Think... |
+|---|---|
+| Bias / Explainability | **SageMaker Clarify** |
+| Human data labeling | **SageMaker Ground Truth** |
+| Model versions / approvals | **SageMaker Model Registry** |
+| Prepare / transform data | **SageMaker Data Wrangler** |
+| Reusable ML features | **SageMaker Feature Store** |
+| Automatically build ML models | **SageMaker Autopilot** |
+| Pretrained models / solutions | **SageMaker JumpStart** |
+| Hyperparameter optimization | **Automatic Model Tuning** |
+| Automate ML workflow | **SageMaker Pipelines** |
+| Track training runs | **SageMaker Experiments** |
+| Training problems | **SageMaker Debugger** |
+| Training resource bottlenecks | **SageMaker Profiler** |
+| Immediate predictions | **Real-Time Inference** |
+| Intermittent / unpredictable traffic | **Serverless Inference** |
+| Large offline prediction job | **Batch Transform** |
+| Long-running inference | **Asynchronous Inference** |
+| Model / data drift | **SageMaker Model Monitor** |
+| Optimize model for hardware | **SageMaker Neo** |
+| Models on edge devices | **SageMaker Edge Manager** |
+
+---
+
+## 📌 Quick Reference
 
 | SageMaker Feature | Main Use |
 |---|---|
@@ -43,285 +66,181 @@ SageMaker has features for almost every stage of this lifecycle.
 | **SageMaker Ground Truth** | Human data labeling |
 | **SageMaker Feature Store** | Store and reuse ML features |
 | **SageMaker Training Jobs** | Train ML models |
-| **SageMaker Automatic Model Tuning** | Hyperparameter tuning |
+| **Automatic Model Tuning** | Hyperparameter optimization |
 | **SageMaker Autopilot** | Automatically build ML models |
-| **SageMaker JumpStart** | Prebuilt models, solutions, and templates |
+| **SageMaker JumpStart** | Prebuilt models and solutions |
 | **SageMaker Clarify** | Bias detection and explainability |
 | **SageMaker Model Registry** | Manage model versions |
 | **SageMaker Pipelines** | Automate ML workflows |
-| **SageMaker Experiments** | Track training experiments |
-| **SageMaker Debugger** | Debug training problems |
-| **SageMaker Profiler** | Analyze training resource performance |
-| **SageMaker Real-Time Inference** | Always-on predictions |
-| **SageMaker Serverless Inference** | On-demand predictions without managing servers |
-| **SageMaker Batch Transform** | Run predictions on large offline datasets |
-| **SageMaker Asynchronous Inference** | Handle long-running or large inference requests |
-| **SageMaker Model Monitor** | Detect model/data drift in production |
-| **SageMaker Endpoint** | Host deployed models for inference |
-| **SageMaker Neo** | Optimize models for specific hardware |
+| **SageMaker Experiments** | Track ML experiments |
+| **SageMaker Debugger** | Detect training problems |
+| **SageMaker Profiler** | Analyze training resource usage |
+| **Real-Time Inference** | Immediate predictions |
+| **Serverless Inference** | On-demand inference for intermittent traffic |
+| **Batch Transform** | Large offline prediction jobs |
+| **Asynchronous Inference** | Long-running or large inference requests |
+| **SageMaker Model Monitor** | Monitor deployed models for drift |
+| **SageMaker Neo** | Optimize models for hardware |
 | **SageMaker Edge Manager** | Manage models on edge devices |
 
 ---
 
-# 1. SageMaker Studio
+# 🧹 Data Preparation
 
-## Purpose
+## 1. SageMaker Data Wrangler
 
-SageMaker Studio is the main integrated development environment for machine learning on AWS.
+### Purpose
 
-Think of it as:
+Prepare, clean, and transform data before model training.
 
-> **The central workspace for ML development**
+Typical tasks include:
 
-You can use it for:
+- Handling missing values
+- Transforming columns
+- Normalizing data
+- Joining datasets
+- Exploring data
+- Preparing training datasets
 
-- Notebooks
-- Training
-- Experiments
-- Model deployment
-- Pipelines
-- Data preparation
-- Model monitoring
+### Real-World Example
 
-## Real-World Example
+A company has messy customer data:
 
-A data scientist opens SageMaker Studio to:
+| Age | Income | State |
+|---:|---:|---|
+| 25 | $70,000 | CA |
+| Missing | $45,000 | TX |
+| 31 | Missing | NY |
 
-```text
-Load customer data
-    ↓
-Clean data
-    ↓
-Train churn model
-    ↓
-Evaluate model
-    ↓
-Deploy model
-```
+The workflow might be:
 
-### Remember
+**Raw Customer Data → Data Wrangler → Clean Data → Training Dataset**
 
-> **Studio = ML workspace**
-
----
-
-# 2. SageMaker Notebooks
-
-## Purpose
-
-Used to write and execute ML code interactively.
-
-Usually Python-based.
-
-## Real-World Example
-
-A data scientist uses a notebook to:
-
-```python
-import pandas as pd
-
-df = pd.read_csv("customers.csv")
-```
-
-Then trains a model.
-
-### Remember
-
-> **Notebook = Write and test ML code**
-
----
-
-# 3. SageMaker Data Wrangler
-
-## Purpose
-
-Used to prepare, clean, and transform data before model training.
-
-Typical tasks:
-
-- Remove missing values
-- Transform columns
-- Normalize data
-- Join datasets
-- Detect data quality problems
-
-## Real-World Example
-
-Raw customer data:
-
-```text
-Age     Income      State
-25      $70,000     CA
-NULL    $45,000     TX
-31      NULL        NY
-```
-
-Data Wrangler:
-
-```text
-Raw Data
-   ↓
-Clean missing values
-   ↓
-Transform columns
-   ↓
-Training-ready dataset
-```
-
-### Remember
+### 🧠 Remember
 
 > **Data Wrangler = Clean and prepare data**
 
 ---
 
-# 4. SageMaker Ground Truth
+## 2. SageMaker Ground Truth
 
-## Purpose
+### Purpose
 
-Used for **data labeling**, often with human annotators.
+Create **labeled training datasets**, often using human annotators.
 
-Examples:
+Ground Truth can be used to label:
 
-- Label images
-- Label text
-- Label videos
-- Create training datasets
+- Images
+- Text
+- Video
+- Other training data
 
-## Real-World Example
+### Real-World Example
 
-You have 100,000 images.
+You have 100,000 unlabeled animal images.
 
 Humans label them:
 
-```text
-Image 1 → CAT
-Image 2 → DOG
-Image 3 → CAT
-Image 4 → DOG
-```
+- Image 1 → `CAT`
+- Image 2 → `DOG`
+- Image 3 → `DOG`
+- Image 4 → `CAT`
 
-The labeled dataset is then used for training.
+The labeled images can then train an image classification model.
 
-### Remember
+### 🧠 Remember
 
-> **Ground Truth = Human labeling**
+> **Ground Truth = Human data labeling**
 
 ---
 
-# 5. SageMaker Feature Store
+## 3. SageMaker Feature Store
 
-## Purpose
+### Purpose
 
-Stores ML features so they can be reused across different models.
+Store, manage, and reuse **ML features**.
 
-Example features:
+Examples of features:
 
-```text
-customer_age
-average_order_value
-days_since_last_purchase
-customer_lifetime_value
-```
+- `customer_age`
+- `average_order_value`
+- `days_since_last_purchase`
+- `customer_lifetime_value`
 
-## Real-World Example
+### Real-World Example
 
-Instead of recalculating:
+A company has several ML models that need:
 
-```text
-average_order_value
-```
+**Average Customer Order Value**
 
-for every model, store it once in Feature Store and reuse it.
+Instead of every team calculating that feature independently:
 
-### Remember
+**Customer Data → Calculate Feature Once → Feature Store → Reuse Across Models**
 
-> **Feature Store = Reusable ML features**
+### 🧠 Remember
+
+> **Feature Store = Store and reuse ML features**
 
 ---
 
-# 6. SageMaker Training Jobs
+# 💻 Model Development
 
-## Purpose
+## 4. SageMaker Studio
 
-Used to train ML models using managed AWS compute.
+### Purpose
 
-AWS handles:
+SageMaker Studio provides a centralized environment for ML development.
 
-- Infrastructure
-- Compute provisioning
-- Training environment
-- Scaling
+It can be used to work with:
 
-## Real-World Example
+- Data
+- Notebooks
+- Training
+- Models
+- Experiments
+- Pipelines
+- Deployment
 
-```text
-Training Data
-     ↓
-SageMaker Training Job
-     ↓
-ML Algorithm
-     ↓
-Trained Model
-```
+### Real-World Example
 
-### Remember
+A data scientist uses Studio to:
 
-> **Training Job = Train the model**
+**Load Data → Explore → Train → Evaluate → Deploy**
 
----
+### 🧠 Remember
 
-# 7. SageMaker Automatic Model Tuning
-
-Also called:
-
-> **Hyperparameter Optimization**
-
-## Purpose
-
-Automatically finds good hyperparameter values.
-
-Example parameters:
-
-```text
-learning_rate
-batch_size
-tree_depth
-number_of_estimators
-```
-
-## Real-World Example
-
-Instead of manually testing:
-
-```text
-learning_rate = 0.01
-learning_rate = 0.05
-learning_rate = 0.10
-```
-
-SageMaker tests many combinations automatically.
-
-```text
-Hyperparameter combinations
-        ↓
-Automatic Model Tuning
-        ↓
-Best-performing configuration
-```
-
-### Remember
-
-> **Model Tuning = Find best hyperparameters**
+> **Studio = Central ML workspace**
 
 ---
 
-# 8. SageMaker Autopilot
+## 5. SageMaker Notebooks
 
-## Purpose
+### Purpose
 
-Automatically builds ML models from tabular data.
+Interactive environments for writing and running ML code.
 
-It can automate:
+### Real-World Example
+
+A data scientist uses Python to:
+
+- Load customer data
+- Explore the dataset
+- Train a model
+- Test predictions
+
+### 🧠 Remember
+
+> **Notebooks = Write and experiment with ML code**
+
+---
+
+## 6. SageMaker Autopilot
+
+### Purpose
+
+Provides **AutoML** capabilities.
+
+It can automate parts of:
 
 - Data preprocessing
 - Algorithm selection
@@ -329,792 +248,577 @@ It can automate:
 - Hyperparameter tuning
 - Model evaluation
 
-## Real-World Example
+### Real-World Example
 
-You give SageMaker:
+You provide:
 
-```text
-customer.csv
-```
+**Dataset:** `customers.csv`
 
-and tell it:
+**Target:** `churn`
 
-```text
-Target column = churn
-```
+Autopilot evaluates candidate models and configurations to help find a strong model.
 
-Autopilot can automatically try multiple models and determine which works best.
-
-### Remember
+### 🧠 Remember
 
 > **Autopilot = AutoML**
 
 ---
 
-# 9. SageMaker JumpStart
+## 7. SageMaker JumpStart
 
-## Purpose
+### Purpose
 
-Provides prebuilt:
+Provides access to pretrained models, foundation models, solution templates, and examples.
 
-- Foundation models
-- ML models
-- Solution templates
-- Example notebooks
+### Real-World Example
 
-## Real-World Example
+Instead of building an ML model entirely from scratch:
 
-Instead of training an image classifier from scratch:
+**JumpStart → Select Pretrained Model → Customize/Fine-Tune → Deploy**
 
-```text
-JumpStart
-   ↓
-Choose pretrained model
-   ↓
-Fine-tune with your data
-   ↓
-Deploy
-```
+### 🧠 Remember
 
-### Remember
-
-> **JumpStart = Start with prebuilt models**
+> **JumpStart = Start with something prebuilt**
 
 ---
 
-# 10. SageMaker Clarify
+# 🏋️ Model Training
 
-## Purpose
+## 8. SageMaker Training Jobs
 
-Used for:
+### Purpose
 
-- Bias detection
-- Model explainability
-- Feature importance
+Train ML models using managed AWS compute resources.
 
-## Real-World Example
+AWS manages much of the underlying training infrastructure.
 
-Loan model says:
+### Real-World Example
 
-```text
-LOAN DENIED
-```
+**Training Data → SageMaker Training Job → ML Algorithm → Trained Model**
 
-Clarify helps answer:
+### 🧠 Remember
 
-```text
-Why?
-```
-
-Possible explanation:
-
-```text
-Debt ratio      → Strong negative impact
-Credit score    → Medium negative impact
-Income          → Positive impact
-```
-
-It can also check whether model outcomes differ significantly across groups.
-
-### Remember
-
-> **Clarify = Bias + Explainability**
+> **Training Job = Train the model**
 
 ---
 
-# 11. SageMaker Model Registry
+## 9. Automatic Model Tuning
 
-## Purpose
+Also known as **Hyperparameter Optimization (HPO)**.
 
-Used to manage different versions of ML models.
+### Purpose
 
-Think of it like:
-
-> **Version control for models**
-
-## Real-World Example
-
-```text
-Fraud Model v1
-Fraud Model v2
-Fraud Model v3
-```
-
-Registry may track:
-
-```text
-v1 → Rejected
-v2 → Approved
-v3 → Pending
-```
-
-### Remember
-
-> **Model Registry = Model versions**
-
----
-
-# 12. SageMaker Pipelines
-
-## Purpose
-
-Automates an entire machine learning workflow.
-
-## Example
-
-```text
-Prepare Data
-     ↓
-Train Model
-     ↓
-Evaluate Model
-     ↓
-Register Model
-     ↓
-Deploy Model
-```
-
-Instead of running every step manually, Pipelines automates them.
-
-## Real-World Example
-
-A company retrains its recommendation model every week.
-
-```text
-New Data
-   ↓
-Pipeline
-   ↓
-Train
-   ↓
-Evaluate
-   ↓
-Deploy if good enough
-```
-
-### Remember
-
-> **Pipelines = ML workflow automation**
-
----
-
-# 13. SageMaker Experiments
-
-## Purpose
-
-Tracks different model training experiments.
-
-You can compare:
-
-- Algorithms
-- Parameters
-- Datasets
-- Metrics
-- Model versions
-
-## Real-World Example
-
-```text
-Experiment 1:
-Random Forest
-Accuracy = 91%
-
-Experiment 2:
-XGBoost
-Accuracy = 95%
-
-Experiment 3:
-Neural Network
-Accuracy = 93%
-```
-
-Experiments helps compare them.
-
-### Remember
-
-> **Experiments = Track ML experiments**
-
----
-
-# 14. SageMaker Debugger
-
-## Purpose
-
-Helps identify problems during model training.
+Search for effective hyperparameter values.
 
 Examples:
 
+- Learning rate
+- Batch size
+- Tree depth
+- Number of estimators
+
+### Real-World Example
+
+Instead of manually trying:
+
+- Learning rate = `0.001`
+- Learning rate = `0.01`
+- Learning rate = `0.1`
+
+SageMaker automatically evaluates multiple configurations.
+
+**Different Hyperparameters → Model Tuning → Best Configuration**
+
+### 🧠 Remember
+
+> **Automatic Model Tuning = Find good hyperparameters**
+
+---
+
+## 10. SageMaker Experiments
+
+### Purpose
+
+Track and compare ML experiments.
+
+You may compare:
+
+- Algorithms
+- Hyperparameters
+- Datasets
+- Metrics
+- Training runs
+
+### Real-World Example
+
+| Experiment | Model | Accuracy |
+|---|---|---:|
+| #1 | Random Forest | 91% |
+| #2 | XGBoost | 95% |
+| #3 | Neural Network | 93% |
+
+Experiments helps organize and compare the runs.
+
+### 🧠 Remember
+
+> **Experiments = Track and compare training runs**
+
+---
+
+## 11. SageMaker Debugger
+
+### Purpose
+
+Detect and diagnose problems during model training.
+
+Examples include:
+
 - Vanishing gradients
 - Exploding gradients
-- Overfitting
-- Poor training behavior
+- Training issues
+- Poor convergence
 
-## Real-World Example
+### Real-World Example
 
-```text
-Training starts
-     ↓
-Loss suddenly explodes
-     ↓
-Debugger detects problem
-```
+**Training → Loss behaves abnormally → Debugger identifies problem**
 
-### Remember
+### 🧠 Remember
 
 > **Debugger = Find training problems**
 
 ---
 
-# 15. SageMaker Profiler
+## 12. SageMaker Profiler
 
-## Purpose
+### Purpose
 
-Analyzes how efficiently training jobs use compute resources.
+Analyze how training jobs use computing resources.
 
-Can help identify:
+It can help identify:
 
-- GPU underutilization
 - CPU bottlenecks
-- Memory bottlenecks
-- Slow training steps
+- GPU underutilization
+- Memory issues
+- Slow training operations
 
-## Real-World Example
+### Real-World Example
 
-```text
-GPU usage = 30%
-CPU usage = 95%
-```
+Suppose:
 
-Profiler might reveal a CPU bottleneck.
+- GPU usage = `30%`
+- CPU usage = `95%`
 
-### Remember
+Profiler can help reveal that the CPU is limiting training performance.
 
-> **Profiler = Analyze training performance**
+### 🧠 Remember
 
----
-
-# 16. SageMaker Real-Time Inference
-
-## Purpose
-
-Used when applications require immediate predictions.
-
-The endpoint remains running.
-
-## Real-World Example
-
-A bank receives a transaction:
-
-```text
-Transaction
-    ↓
-SageMaker Endpoint
-    ↓
-Fraud Model
-    ↓
-Prediction
-    ↓
-FRAUD
-```
-
-Response happens in milliseconds.
-
-Good for:
-
-- Fraud detection
-- Recommendation systems
-- Chat applications
-- Real-time scoring
-
-### Remember
-
-> **Real-Time Inference = Always-on predictions**
+> **Profiler = Analyze training performance/resources**
 
 ---
 
-# 17. SageMaker Serverless Inference
+# ⚖️ Model Evaluation & Governance
 
-## Purpose
+## 13. SageMaker Clarify
 
-Run inference without provisioning or managing servers.
+### Purpose
 
-AWS automatically provides compute when requests arrive.
+Used primarily for:
 
-Useful when traffic is:
+- **Bias detection**
+- **Model explainability**
+- Understanding feature importance
 
-- Unpredictable
-- Intermittent
-- Low-volume
+### Real-World Example
 
-## Real-World Example
+A loan model predicts:
 
-An internal company ML tool is only used a few times per hour.
+> ❌ **LOAN DENIED**
 
-```text
-Request
-   ↓
-Serverless Inference
-   ↓
-Model runs
-   ↓
-Prediction
-```
+Clarify can help explain the prediction:
 
-No request:
+| Feature | Influence |
+|---|---|
+| Debt-to-income ratio | Strong negative |
+| Credit score | Negative |
+| Income | Positive |
 
-```text
-No dedicated server running
-```
+It can also help analyze potential bias.
 
-### Remember
+### 🧠 Remember
 
-> **Serverless Inference = Pay/use when requests arrive**
+> **Clarify = Bias + Explainability**
 
 ---
 
-# 18. SageMaker Batch Transform
+## 14. SageMaker Model Registry
 
-## Purpose
+### Purpose
 
-Run predictions on a large dataset all at once.
+Catalog and manage versions of ML models.
 
-No real-time endpoint is required.
+### Real-World Example
 
-## Real-World Example
+| Model | Status |
+|---|---|
+| Fraud Model v1 | Rejected |
+| Fraud Model v2 | Approved |
+| Fraud Model v3 | Pending |
 
-A company wants predictions for:
+This allows teams to control which model version should move toward production.
 
-```text
-5 million customers
-```
+### 🧠 Remember
 
-overnight.
-
-```text
-Customer Dataset
-      ↓
-Batch Transform
-      ↓
-Predictions for all customers
-```
-
-### Remember
-
-> **Batch Transform = Offline bulk predictions**
+> **Model Registry = Model versions**
 
 ---
 
-# 19. SageMaker Asynchronous Inference
+# ⚙️ ML Workflow Automation
 
-## Purpose
+## 15. SageMaker Pipelines
 
-Used for predictions that:
+### Purpose
 
-- Take a long time
-- Have large payloads
-- Do not require immediate responses
+Automate ML workflows.
 
-## Real-World Example
+### Real-World Example
 
-Processing a large video:
+A company retrains its fraud model regularly:
 
-```text
-2 GB Video
-   ↓
-Async Inference
-   ↓
-Model processes for several minutes
-   ↓
-Prediction saved
-```
+**New Data → Process Data → Train → Evaluate → Register → Deploy**
 
-The user does not need to keep the connection open.
+Instead of manually executing every stage, a SageMaker Pipeline orchestrates the workflow.
 
-### Remember
+### 🧠 Remember
 
-> **Async Inference = Long-running predictions**
+> **Pipelines = Automate the ML lifecycle**
 
 ---
 
-# 20. SageMaker Model Monitor
+# 🚀 Deployment & Inference
 
-## Purpose
+There are four inference approaches that are especially important to distinguish.
 
-Monitors models after deployment.
+| Inference Type | Best For | Example |
+|---|---|---|
+| **Real-Time** | Immediate, sustained predictions | Fraud detection |
+| **Serverless** | Immediate but intermittent traffic | Occasionally used internal app |
+| **Batch Transform** | Large offline datasets | Score 5 million customers overnight |
+| **Asynchronous** | Long-running / large requests | Large media processing |
 
-It can detect:
+---
 
+## 16. Real-Time Inference
+
+### Purpose
+
+Provide low-latency predictions through a hosted endpoint.
+
+### Real-World Example
+
+A credit card transaction occurs.
+
+**Transaction → Endpoint → Fraud Model → FRAUD / NORMAL**
+
+The application needs the answer immediately.
+
+### Best When
+
+- Low latency is important
+- Traffic is relatively steady
+- The endpoint needs to remain available
+
+### 🧠 Remember
+
+> **Real-Time = Immediate prediction**
+
+---
+
+## 17. Serverless Inference
+
+### Purpose
+
+Run inference without provisioning or managing the underlying serving infrastructure.
+
+Useful for **intermittent or unpredictable traffic**.
+
+### Real-World Example
+
+An internal employee application receives only a few ML prediction requests every hour.
+
+**Occasional Request → Serverless Inference → Prediction**
+
+### 🧠 Remember
+
+> **Serverless = Immediate + intermittent traffic**
+
+---
+
+## 18. Batch Transform
+
+### Purpose
+
+Generate predictions for **large offline datasets** without maintaining a persistent endpoint.
+
+### Real-World Example
+
+A company needs churn predictions for:
+
+> **5,000,000 customers**
+
+The predictions can run overnight.
+
+**5M Customer Records → Batch Transform → 5M Predictions**
+
+### 🧠 Remember
+
+> **Batch Transform = Bulk offline predictions**
+
+---
+
+## 19. Asynchronous Inference
+
+### Purpose
+
+Handle inference requests that take longer to process or involve larger payloads.
+
+The caller does not need an immediate response.
+
+### Real-World Example
+
+A large file requires several minutes of model processing.
+
+**Large Request → Async Inference → Processing → Result**
+
+### 🧠 Remember
+
+> **Async = Long-running inference**
+
+---
+
+# 📊 Production Monitoring
+
+## 20. SageMaker Model Monitor
+
+### Purpose
+
+Monitor deployed models and production data.
+
+It can help detect issues such as:
+
+- Data quality changes
+- Model quality changes
 - Data drift
-- Prediction drift
-- Data quality problems
-- Model quality degradation
+- Bias drift
 
-## Real-World Example
+### Real-World Example
 
-A fraud model was trained using:
+A fraud model was trained on historical transaction behavior.
 
-```text
-2025 transaction patterns
-```
+Months later:
 
-But customer behavior changes in 2026.
+**Customer Behavior Changes → Production Data Changes → Model Monitor Detects Drift**
 
-```text
-Production Data
-      ↓
-Model Monitor
-      ↓
-Distribution changed
-      ↓
-Alert
-```
+The company can investigate whether the model should be retrained.
 
-### Remember
+### 🧠 Remember
 
-> **Model Monitor = Watch deployed model health**
+> **Model Monitor = Watch production models**
 
 ---
 
-# 21. SageMaker Endpoint
+# ⚡ Optimization & Edge
 
-## Purpose
+## 21. SageMaker Neo
 
-A hosted location where applications send requests to a deployed model.
+### Purpose
 
-## Real-World Example
+Optimize trained ML models for supported target hardware.
 
-Application sends:
+### Real-World Example
 
-```json
-{
-  "income": 85000,
-  "credit_score": 720
-}
-```
+**Trained Model → Neo Optimization → Optimized Model → Target Hardware**
 
-to:
+The goal is more efficient inference.
 
-```text
-SageMaker Endpoint
-      ↓
-Loan Model
-      ↓
-APPROVED
-```
+### 🧠 Remember
 
-### Remember
-
-> **Endpoint = Where the deployed model receives requests**
+> **Neo = Optimize model for hardware**
 
 ---
 
-# 22. SageMaker Neo
+## 22. SageMaker Edge Manager
 
-## Purpose
+### Purpose
 
-Optimizes ML models to run efficiently on specific hardware.
-
-Examples:
-
-- CPUs
-- GPUs
-- Edge devices
-
-## Real-World Example
-
-A model originally requires:
-
-```text
-500 ms inference
-```
-
-After optimization:
-
-```text
-120 ms inference
-```
-
-### Remember
-
-> **Neo = Optimize models for hardware**
-
----
-
-# 23. SageMaker Edge Manager
-
-## Purpose
-
-Helps manage ML models deployed to edge devices.
+Historically used to manage ML models running on edge devices.
 
 Examples:
 
 - Cameras
-- Industrial devices
+- Industrial equipment
 - IoT devices
 
-## Real-World Example
+### Real-World Example
 
-Factory cameras run an ML model locally:
+A factory camera runs a defect-detection model locally:
 
-```text
-Camera
-   ↓
-Local ML Model
-   ↓
-Detect defective product
-```
+**Camera → Local ML Model → Defective / Normal**
 
-Edge Manager helps manage those deployed models.
+### 🧠 Remember
 
-### Remember
+> **Edge Manager = Manage ML at the edge**
 
-> **Edge Manager = Manage models on edge devices**
+> **Note:** When studying from older AWS material, you may still encounter Edge Manager terminology even though AWS services and feature availability evolve over time.
 
 ---
 
-# 🔥 SageMaker Lifecycle Cheat Sheet
+# 🌳 Complete SageMaker Lifecycle
 
 ```text
-DATA PREPARATION
-│
-├── Data Wrangler
-│   └── Clean and transform data
-│
-├── Ground Truth
-│   └── Human labeling
-│
-└── Feature Store
-    └── Store reusable features
-
-
-MODEL DEVELOPMENT
-│
-├── Studio
-│   └── ML workspace
-│
-├── Notebooks
-│   └── Write ML code
-│
-├── Autopilot
-│   └── AutoML
-│
-└── JumpStart
-    └── Prebuilt models
-
-
-TRAINING
-│
-├── Training Jobs
-│   └── Train model
-│
-├── Automatic Model Tuning
-│   └── Find best hyperparameters
-│
-├── Experiments
-│   └── Compare experiments
-│
-├── Debugger
-│   └── Find training problems
-│
-└── Profiler
-    └── Analyze compute performance
-
-
-EVALUATION / GOVERNANCE
-│
-├── Clarify
-│   └── Bias + explainability
-│
-└── Model Registry
-    └── Manage model versions
-
-
-AUTOMATION
-│
-└── Pipelines
-    └── Automate ML workflow
-
-
-DEPLOYMENT / INFERENCE
-│
-├── Real-Time Inference
-│   └── Immediate predictions
-│
-├── Serverless Inference
-│   └── Intermittent/unpredictable requests
-│
-├── Batch Transform
-│   └── Bulk offline predictions
-│
-└── Asynchronous Inference
-    └── Long-running predictions
-
-
-MONITORING
-│
-└── Model Monitor
-    └── Detect drift / production problems
-
-
-OPTIMIZATION / EDGE
-│
-├── Neo
-│   └── Hardware optimization
-│
-└── Edge Manager
-    └── Edge deployment management
+                         DATA
+                          │
+          ┌───────────────┼───────────────┐
+          ▼               ▼               ▼
+    Data Wrangler    Ground Truth    Feature Store
+       Prepare          Label           Features
+          │               │               │
+          └───────────────┼───────────────┘
+                          ▼
+                       DEVELOP
+                          │
+          ┌───────────────┼───────────────┐
+          ▼               ▼               ▼
+        Studio         Autopilot       JumpStart
+      Workspace          AutoML        Prebuilt
+                          │
+                          ▼
+                        TRAIN
+                          │
+          ┌───────────────┼───────────────┐
+          ▼               ▼               ▼
+    Training Jobs      Tuning        Experiments
+       Train        Hyperparameters     Track
+                          │
+                          ▼
+                       EVALUATE
+                          │
+                    SageMaker Clarify
+                   Bias + Explainability
+                          │
+                          ▼
+                       REGISTER
+                          │
+                     Model Registry
+                     Model Versions
+                          │
+                          ▼
+                        DEPLOY
+                          │
+       ┌──────────────────┼──────────────────┐
+       ▼                  ▼                  ▼
+   Real-Time          Serverless           Batch
+   Immediate         Intermittent          Offline
+                          │
+                          ▼
+                    Async Inference
+                     Long Running
+                          │
+                          ▼
+                       MONITOR
+                          │
+                     Model Monitor
+                     Drift / Quality
 ```
 
 ---
 
-# 🚀 Exam Memory Cheat Sheet
+# 🧠 The Four Inference Types
+
+This is worth memorizing for AWS exams.
 
 ```text
-SageMaker Studio
-→ ML workspace
-
-Data Wrangler
-→ Prepare data
-
-Ground Truth
-→ Human labeling
-
-Feature Store
-→ Reusable ML features
-
-Training Jobs
-→ Train model
-
-Automatic Model Tuning
-→ Hyperparameters
-
-Autopilot
-→ AutoML
-
-JumpStart
-→ Prebuilt models
-
-Clarify
-→ Bias + Explainability
-
-Model Registry
-→ Model versions
-
-Pipelines
-→ Automate ML workflow
-
-Experiments
-→ Compare training runs
-
-Debugger
-→ Training problems
-
-Profiler
-→ Compute/resource bottlenecks
-
-Real-Time Inference
-→ Immediate predictions
-
-Serverless Inference
-→ Unpredictable/intermittent traffic
-
-Batch Transform
-→ Large offline batch predictions
-
-Asynchronous Inference
-→ Long-running/large inference requests
-
-Model Monitor
-→ Drift + production monitoring
-
-Neo
-→ Optimize for hardware
-
-Edge Manager
-→ Manage edge models
+Need an immediate response?
+│
+├── YES
+│   │
+│   ├── Consistent / sustained traffic?
+│   │      └── REAL-TIME INFERENCE
+│   │
+│   └── Intermittent / unpredictable traffic?
+│          └── SERVERLESS INFERENCE
+│
+└── NO
+    │
+    ├── Processing an entire dataset?
+    │      └── BATCH TRANSFORM
+    │
+    └── Individual request takes a long time?
+           └── ASYNCHRONOUS INFERENCE
 ```
 
 ---
 
-# 🎯 Common AWS Exam Keywords
+# 🎯 AWS Exam Cheat Sheet
+
+| Exam Wording | Answer |
+|---|---|
+| "Detect bias" | **Clarify** |
+| "Explain model predictions" | **Clarify** |
+| "Human data labeling" | **Ground Truth** |
+| "Prepare and transform data" | **Data Wrangler** |
+| "Store reusable features" | **Feature Store** |
+| "Automatically build ML model" | **Autopilot** |
+| "Pretrained model" | **JumpStart** |
+| "Optimize hyperparameters" | **Automatic Model Tuning** |
+| "Compare training runs" | **Experiments** |
+| "Manage different model versions" | **Model Registry** |
+| "Automate ML workflow" | **Pipelines** |
+| "Immediate prediction" | **Real-Time Inference** |
+| "Intermittent traffic" | **Serverless Inference** |
+| "Millions of offline predictions" | **Batch Transform** |
+| "Long-running inference request" | **Asynchronous Inference** |
+| "Detect production drift" | **Model Monitor** |
+
+---
+
+# 🚀 One-Line Memory Guide
 
 ```text
-"Different versions of the model"
-              ↓
-MODEL REGISTRY
-
-
-"Bias or explainability"
-              ↓
-CLARIFY
-
-
-"Human labeling"
-              ↓
-GROUND TRUTH
-
-
-"Prepare / transform data"
-              ↓
-DATA WRANGLER
-
-
-"Reusable ML features"
-              ↓
-FEATURE STORE
-
-
-"Automatically build models"
-              ↓
-AUTOPILOT
-
-
-"Pretrained model"
-              ↓
-JUMPSTART
-
-
-"Best hyperparameters"
-              ↓
-AUTOMATIC MODEL TUNING
-
-
-"Automate training and deployment"
-              ↓
-PIPELINES
-
-
-"Immediate prediction"
-              ↓
-REAL-TIME INFERENCE
-
-
-"Unpredictable traffic"
-              ↓
-SERVERLESS INFERENCE
-
-
-"Millions of predictions overnight"
-              ↓
-BATCH TRANSFORM
-
-
-"Large request takes several minutes"
-              ↓
-ASYNCHRONOUS INFERENCE
-
-
-"Model/data drift"
-              ↓
-MODEL MONITOR
+Data Wrangler     → CLEAN DATA
+Ground Truth      → LABEL DATA
+Feature Store     → STORE FEATURES
+Studio            → ML WORKSPACE
+Autopilot         → AUTOML
+JumpStart         → PREBUILT MODELS
+Training Jobs     → TRAIN
+Model Tuning      → HYPERPARAMETERS
+Experiments       → TRACK RUNS
+Debugger          → DEBUG TRAINING
+Profiler          → RESOURCE PERFORMANCE
+Clarify           → BIAS + EXPLAINABILITY
+Model Registry    → MODEL VERSIONS
+Pipelines         → AUTOMATE WORKFLOW
+Real-Time         → IMMEDIATE
+Serverless        → INTERMITTENT
+Batch Transform   → BULK OFFLINE
+Async Inference   → LONG RUNNING
+Model Monitor     → DRIFT / PRODUCTION
+Neo               → HARDWARE OPTIMIZATION
 ```
-````
 
-The most important exam distinction among the inference options is:
+---
 
-> **Real-Time = immediate + steady traffic**
-> **Serverless = immediate + intermittent traffic**
-> **Batch Transform = bulk offline jobs**
-> **Async = long-running individual requests**
+## 🏆 Final Memory Trick
 
-That one distinction alone shows up a lot in SageMaker questions.
+Think of SageMaker as an ML factory:
+
+**🧹 Data Wrangler cleans it**  
+**🏷️ Ground Truth labels it**  
+**📦 Feature Store stores it**  
+**🏋️ Training Jobs learn from it**  
+**🎛️ Tuning optimizes it**  
+**⚖️ Clarify explains it**  
+**🗃️ Registry versions it**  
+**⚙️ Pipelines automate it**  
+**🚀 Inference serves it**  
+**📊 Model Monitor watches it**
